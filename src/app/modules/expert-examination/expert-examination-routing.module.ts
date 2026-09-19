@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { ExpertExaminationComponent } from './expert-examination.component';
+import { ExpertExaminationI18nResolver } from './services/expert-examination-i18n.resolver';
+
 import { LaboratoryDataComponent } from './components/laboratory-data/laboratory-data.component';
 import { TherapeuticStatusComponent } from './components/therapeutic-status/therapeutic-status.component';
 import { SpecialistsConclusionComponent } from './components/specialists-conclusion/specialists-conclusion.component';
@@ -11,32 +14,14 @@ const routes: Routes = [
   {
     path: '',
     component: ExpertExaminationComponent,
+    resolve: { eeI18n: ExpertExaminationI18nResolver },   // ← ждём переводы до рендера
     children: [
-      {
-        path: 'laboratory-data',
-        component: LaboratoryDataComponent
-      },
-      {
-        path: 'therapeutic-status',
-        component: TherapeuticStatusComponent
-      },
-      {
-        path: 'specialists-conclusion',
-        component: SpecialistsConclusionComponent
-      },
-      {
-        path: 'rehabilitation-conclusion',
-        component: RehabilitationConclusionComponent
-      },
-      {
-        path: 'surgical-status',
-        component: SurgicalStatusComponent
-      },
-      {
-        path: '',
-        redirectTo: 'laboratory-data',
-        pathMatch: 'full'
-      }
+      { path: 'laboratory-data', component: LaboratoryDataComponent },
+      { path: 'therapeutic-status', component: TherapeuticStatusComponent },
+      { path: 'specialists-conclusion', component: SpecialistsConclusionComponent },
+      { path: 'rehabilitation-conclusion', component: RehabilitationConclusionComponent },
+      { path: 'surgical-status', component: SurgicalStatusComponent },
+      { path: '', redirectTo: 'laboratory-data', pathMatch: 'full' }
     ]
   }
 ];
@@ -45,4 +30,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ExpertExaminationRoutingModule { }
+export class ExpertExaminationRoutingModule {}

@@ -41,9 +41,6 @@ export class ExpertExaminationModule {
     private translate: TranslateService,
     private i18nService: ExpertExaminationI18nService
   ) {
-    // Загружаем переводы при входе в модуль (ленивая загрузка)
-    this.i18nService.load();
-
     // Догружаем переводы при переключении языка
     this.translate.onLangChange.subscribe(event => {
       this.i18nService.loadLang(event.lang);

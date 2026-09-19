@@ -1,10 +1,9 @@
-<div class="input-field-row">
+<div class="input-field-row" [class.input-field-row--stacked]="stacked">
   <label class="row-label" [attr.for]="inputId">{{ labelKey | translate }}</label>
   <textarea
     [id]="inputId"
     pInputTextarea
     [rows]="rows"
-    [autoResize]="true"
     [ngModel]="value"
     (ngModelChange)="onValue($event)"
     [placeholder]="placeholderKey | translate"

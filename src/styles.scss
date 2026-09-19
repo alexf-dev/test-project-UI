@@ -631,11 +631,100 @@ app-laboratory-data {
    Shared-компоненты: стили для UI-примитивов
    ======================================== */
 
-/* Тело раскрывающегося блока */
+/* Глобальная защита от переполнения и корректный расчёт ширины */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* ---------- Раскрывающийся блок (collapsible-block) ---------- */
+/* Блок: больше НЕ режем содержимое по вертикали */
+.laboratory-block {
+  width: 100%;
+  min-width: 0;
+  overflow: visible;      /* БЫЛО: hidden — из-за него обрезалась нижняя textarea */
+  border-radius: 8px;
+  background: #FFFFFF;
+}
+
+/* Тело блока: grid для выравнивания чекбокс-строк */
+/* Тело раскрывающегося блока: grid для выравнивания строк */
+.block-content .block-body {
+  display: grid;
+  /* [чекбокс] [лейбл = самый длинный, не шире 50%] [поле на остаток] */
+  grid-template-columns: auto max-content 1fr;
+  column-gap: 16px;
+  row-gap: 8px;
+  align-items: center;
+  padding: 16px;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Ограничиваем ширину лейблов чекбоксов и селектов */
+.check-field-row .checkbox-label,
+.dropdown-field-row .row-label {
+  max-width: 50vw;           /* не шире половины экрана */
+  min-width: 0;
+  overflow-wrap: break-word; /* перенос длинных слов */
+  word-wrap: break-word;
+  white-space: normal;       /* разрешаем перенос строк */
+}
+
+/* Строка "чекбокс + label + поле" */
+.check-field-row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  column-gap: 16px;
+  align-items: center;
+  padding: 4px 0;
+  width: 100%;
+  min-width: 0;
+}
+
+.check-field-row .check-comment-input {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Textarea всегда занимает всю ширину блока (отдельная строка grid) */
+.block-body > app-textarea-field {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-width: 0;
+}
+
+.block-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #F1F5F9;
+  cursor: pointer;
+  user-select: none;
+}
+
+.block-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: #020617;
+}
+
+.block-content {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Тело блока: block-body ВЛОЖЕН в block-content, поэтому селектор с пробелом */
 .block-content .block-body {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  padding: 16px;
+  width: 100%;
+  min-width: 0;
 }
 
 /* Вложенные раскрывающиеся блоки */
@@ -648,16 +737,19 @@ app-laboratory-data {
   height: 40px;
 }
 
-/* Check-field: чекбокс + label + опциональное поле справа */
+/* ---------- Check-field: чекбокс + label + опциональное поле справа ---------- */
 .check-field-row {
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 4px 0;
+  width: 100%;
+  min-width: 0;
 }
 
 .check-field-row .checkbox-label {
-  flex: 1;
+  flex: 0 1 auto;
+  min-width: 0;
   cursor: pointer;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
@@ -667,21 +759,25 @@ app-laboratory-data {
 }
 
 .check-field-row .check-comment-input {
+  flex: 0 1 320px;
   width: 320px;
-  flex-shrink: 0;
+  max-width: 100%;
+  min-width: 0;
 }
 
-/* Text-input-field: label слева + input справа */
+/* ---------- Text-input-field: label слева + input ---------- */
 .input-field-row {
   display: flex;
   align-items: center;
   gap: 16px;
   padding: 4px 0;
+  width: 100%;
+  min-width: 0;
 }
 
-.input-field-row .row-label,
-.dropdown-field-row .row-label {
-  flex: 1;
+.input-field-row .row-label {
+  flex: 0 1 auto;
+  min-width: 0;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 14px;
@@ -689,44 +785,71 @@ app-laboratory-data {
   color: #020617;
 }
 
-.input-field-row input {
+.input-field-row input,
+.input-field-row textarea {
+  flex: 0 1 320px;
   width: 320px;
-  flex-shrink: 0;
+  max-width: 100%;
+  min-width: 0;
 }
 
-/* Dropdown-field: label слева + dropdown справа */
+.input-field-row .row-label,
+.dropdown-field-row .row-label {
+  flex: 0 1 auto;
+  min-width: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #020617;
+}
+
+/* ---------- Dropdown-field: label слева + dropdown ---------- */
 .dropdown-field-row {
   display: flex;
   align-items: center;
   gap: 16px;
   padding: 4px 0;
+  width: 100%;
+  min-width: 0;
 }
 
 .dropdown-field-row .p-dropdown.therapeutic-dropdown {
+  flex: 0 1 320px;
   width: 320px;
-  flex-shrink: 0;
+  max-width: 100%;
+  min-width: 0;
 }
 
-/* Textarea-field: textarea на всю ширину */
+/* ---------- Textarea-field: на всю ширину ---------- */
 app-textarea-field textarea {
   width: 100%;
+  max-width: 100%;
   box-sizing: border-box;
 }
 
-/* Контейнеры форм */
+/* ---------- Контейнеры форм ---------- */
 app-therapeutic-status,
-app-laboratory-data {
+app-laboratory-data,
+app-surgical-status,
+app-specialists-conclusion,
+app-rehabilitation-conclusion {
   display: block;
+  width: 100%;
+  min-width: 0;
 }
 
 .therapeutic-status-form,
-.laboratory-data-form {
+.laboratory-data-form,
+.surgical-status-form {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  width: 100%;
+  min-width: 0;
 }
 
-/* Подзаголовок пункта внутри блока (shared-компонент group-title) */
+/* ---------- Подзаголовок пункта (group-title) ---------- */
 .group-title {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
@@ -734,4 +857,214 @@ app-laboratory-data {
   line-height: 20px;
   color: #020617;
   margin-top: 8px;
+}
+
+/* ---------- Тело раскрывающегося блока: grid для выравнивания строк ---------- */
+.block-content .block-body {
+  display: grid;
+  /* [чекбокс] [лейбл: растёт до контента, но НЕ шире 50%] [поле на остаток] */
+  grid-template-columns: auto minmax(auto, 50%) 1fr;
+  column-gap: 16px;
+  row-gap: 8px;
+  align-items: center;
+  padding: 16px;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Host check-компонентов "прозрачен", чтобы строка стала grid-элементом block-body */
+.block-body app-check-field,
+.block-body app-check-comment-field {
+  display: contents;
+}
+
+/* Прочие дети блока (заголовки, textarea, dropdown, вложенные блоки) — на всю ширину */
+.block-body > *:not(app-check-field):not(app-check-comment-field) {
+  grid-column: 1 / -1;
+}
+
+/* ---------- Строка "чекбокс + label + поле" ---------- */
+.check-field-row {
+  grid-column: 1 / -1;            /* строка занимает всю ширину блока */
+  display: grid;
+  grid-template-columns: subgrid; /* наследует колонки родителя → выравнивание */
+  column-gap: 16px;
+  align-items: center;
+  padding: 4px 0;
+  width: 100%;
+  min-width: 0;
+}
+
+.check-field-row .checkbox-label {
+  min-width: 0;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #020617;
+}
+
+/* Поле комментария: растягивается на всю 3-ю колонку (до правого края) */
+.check-field-row .check-comment-input {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Модификатор: label сверху, поле на всю ширину (включается через [stacked]="true") */
+.input-field-row--stacked {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+}
+
+.input-field-row--stacked .row-label {
+  font-weight: 600;
+}
+
+.input-field-row--stacked input,
+.input-field-row--stacked textarea {
+  flex: none;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* =========================================
+   FIX: сворачиваемые блоки НЕ должны обрезать содержимое.
+   Держать в конце styles.scss, чтобы перебивать легаси-стили.
+   ========================================= */
+.laboratory-block,
+.laboratory-block .block-header,
+.laboratory-block .block-content,
+.laboratory-block .block-content .block-body {
+  overflow: visible !important;
+  max-height: none !important;
+  height: auto !important;
+}
+
+.laboratory-block .block-content .block-body {
+  padding: 16px;
+  row-gap: 8px;
+  width: 100%;
+  min-width: 0;
+}
+
+/* =========================================
+   FIX: контейнер сворачиваемого блока не должен фиксировать высоту
+   и обрезать последнее поле. Держать в конце styles.scss.
+   ========================================= */
+.laboratory-block .block-content,
+.laboratory-block .block-content .block-body {
+  height: auto !important;
+  max-height: none !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Последнее поле блока не прилипает к нижней границе */
+.laboratory-block .block-content .block-body > *:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================
+   Группа селектов: на широком экране — в линию (лейбл сверху),
+   на узком — в колонку с выравниванием по самому длинному лейблу
+   ========================================= */
+.selects-row {
+  display: grid;
+  grid-template-columns: auto minmax(auto, 50%) 1fr;  /* узкий: колонка */
+  column-gap: 16px;
+  row-gap: 8px;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+}
+
+.selects-row > app-dropdown-field {
+  display: contents;
+}
+
+.selects-row .dropdown-field-row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  column-gap: 16px;
+  align-items: center;
+  padding: 4px 0;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Широкий экран: три селекта в линию, лейбл сверху */
+@media (min-width: 1200px) {
+  .selects-row {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+    column-gap: 24px;
+  }
+  .selects-row .dropdown-field-row {
+    grid-column: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+  .selects-row .dropdown-field-row .row-label {
+    font-weight: 600;
+  }
+  .selects-row .dropdown-field-row .p-dropdown {
+    width: 100%;
+    flex: none;
+  }
+}
+
+/* =========================================
+   Лейблы сверху (stacked) тоже не шире половины экрана
+   ========================================= */
+.input-field-row--stacked .row-label {
+  max-width: 50%;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+/* Тело раскрывающегося блока: grid для выравнивания строк */
+.block-content .block-body {
+  display: grid;
+  /* [чекбокс] [лейбл = самый длинный, не шире 50%] [поле на остаток] */
+  grid-template-columns: auto max-content 1fr;
+  column-gap: 16px;
+  row-gap: 8px;
+  align-items: center;
+  padding: 16px;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Ограничиваем ширину лейблов чекбоксов и селектов */
+.check-field-row .checkbox-label,
+.dropdown-field-row .row-label {
+  max-width: 50vw;           /* не шире половины экрана */
+  min-width: 0;
+  overflow-wrap: break-word; /* перенос длинных слов */
+  word-wrap: break-word;
+  white-space: normal;       /* разрешаем перенос строк */
+}
+
+/* Строка "чекбокс + label + поле" */
+.check-field-row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  column-gap: 16px;
+  align-items: center;
+  padding: 4px 0;
+  width: 100%;
+  min-width: 0;
+}
+
+.check-field-row .check-comment-input {
+  width: 100%;
+  min-width: 0;
 }

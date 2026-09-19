@@ -1,9 +1,11 @@
 import {APP_INITIALIZER, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {HTTP_INTERCEPTORS, HttpBackend, HttpClient, HttpClientModule} from '@angular/common/http';
-
+import { TranslateService } from '@ngx-translate/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import { firstValueFrom, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -16,6 +18,20 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToastModule} from "primeng/toast";
 import {MockApiInterceptor} from "./interceptors/mock-api.interceptor";
 
+/**
+ * Блокирует бутстрап приложения, пока не загрузятся переводы
+ * базового языка → убирает мигание ключей на старте.
+ */
+export function translateAppInitializer(translate: TranslateService): () => Promise<unknown> {
+  return () => {
+    // Ключ хранилища подставь тот, который реально используется у тебя для языка
+    const lang = localStorage.getItem('language') || translate.getDefaultLang() || 'ru';
+    translate.setDefaultLang(lang);
+    return firstValueFrom(
+      translate.use(lang).pipe(catchError(() => of(lang))) // при ошибке не роняем приложение
+    );
+  };
+}
 
 declare global {
   interface Window {
@@ -67,6 +83,12 @@ function appInitializer(authService: AuthService) {
       provide: HTTP_INTERCEPTORS,
       useClass: MockApiInterceptor,
       multi: true,
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: translateAppInitializer,
+      deps: [TranslateService],
+      multi: true
     },
     MessageService,
     AuthService,

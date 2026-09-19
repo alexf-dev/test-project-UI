@@ -20,6 +20,12 @@ export class TextareaFieldComponent {
   @Input() rows = 2;
   @Input() placeholderKey = 'MAIN.COMMON.ENTER_VALUE';
 
+  /**
+   * По макету textarea ВСЕГДА на всю ширину, label сверху.
+   * Дефолт true; если где-то понадобится компактный вариант — передать [stacked]="false".
+   */
+  @Input() stacked = true;
+
   public inputId = 'textarea-field-' + ++TextareaFieldComponent.idCounter;
 
   public onValue(value: string): void {

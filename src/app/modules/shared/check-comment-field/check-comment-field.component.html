@@ -1,30 +1,21 @@
-<div class="check-comment-field" [class.bottom-position]="commentPosition === 'bottom'">
-  <div class="check-row">
-    <p-checkbox
-      [binary]="true"
-      [(ngModel)]="checked"
-      (ngModelChange)="onCheckedChange($event)">
-    </p-checkbox>
-    <label class="check-label">{{ labelKey | translate }}</label>
-  </div>
+<div class="check-field-row">
+  <p-checkbox
+    [inputId]="inputId"
+    [binary]="true"
+    [ngModel]="checked"
+    (ngModelChange)="onCheckedChange($event)">
+  </p-checkbox>
+
+  <label class="checkbox-label" [attr.for]="inputId">
+    {{ labelKey | translate }}
+  </label>
 
   <input
-    *ngIf="commentPosition === 'right'"
     type="text"
     pInputText
-    [(ngModel)]="comment"
+    class="check-comment-input"
+    [ngModel]="comment"
     (ngModelChange)="onCommentChange($event)"
-    [placeholder]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.ENTER_VALUE' | translate"
-    class="comment-input"
-  />
-
-  <input
-    *ngIf="commentPosition === 'bottom'"
-    type="text"
-    pInputText
-    [(ngModel)]="comment"
-    (ngModelChange)="onCommentChange($event)"
-    [placeholder]="'MAIN.EXAMINATION.EXPERT_EXAMINATION.SURGICAL_STATUS.ENTER_VALUE' | translate"
-    class="comment-input bottom"
+    [placeholder]="'MAIN.COMMON.ENTER_VALUE' | translate"
   />
 </div>

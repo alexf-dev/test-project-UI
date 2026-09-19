@@ -19,6 +19,14 @@ export class TextInputFieldComponent {
   @Output() valueChange = new EventEmitter<string>();
   @Input() placeholderKey = 'MAIN.COMMON.ENTER_VALUE';
 
+  /**
+   * По макету текстовое поле, стоящее одно в строке, занимает всю ширину,
+   * лейбл сверху. Дефолт true (как у textarea-field).
+   * Если где-то нужна компактная раскладка "лейбл слева + поле 320px" —
+   * передать явно [stacked]="false".
+   */
+  @Input() stacked = true;
+
   public inputId = 'text-input-field-' + ++TextInputFieldComponent.idCounter;
 
   public onValue(value: string): void {

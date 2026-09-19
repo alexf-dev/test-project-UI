@@ -51,6 +51,7 @@ export class AppComponent implements OnInit, OnDestroy {
       .pipe(
         catchError((error) => {
           console.error('Не удалось загрузить профиль', error);
+          document.getElementById('splash')?.remove();
           return of(null);
         }),
         takeUntil(this.destroy$)
@@ -58,6 +59,8 @@ export class AppComponent implements OnInit, OnDestroy {
       .subscribe(() => {
         this.watchAuthenticatedProfile();
       });
+
+    document.getElementById('splash')?.remove();
   }
 
   ngOnDestroy(): void {
