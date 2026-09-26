@@ -9,6 +9,7 @@ import { TherapeuticStatusComponent } from './components/therapeutic-status/ther
 import { SpecialistsConclusionComponent } from './components/specialists-conclusion/specialists-conclusion.component';
 import { RehabilitationConclusionComponent } from './components/rehabilitation-conclusion/rehabilitation-conclusion.component';
 import { SurgicalStatusComponent } from './components/surgical-status/surgical-status.component';
+import { NeurologicalStatusComponent } from './components/neurological-status/neurological-status.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'specialists-conclusion', component: SpecialistsConclusionComponent },
       { path: 'rehabilitation-conclusion', component: RehabilitationConclusionComponent },
       { path: 'surgical-status', component: SurgicalStatusComponent },
+      { path: 'neurological-status', component: NeurologicalStatusComponent },
       { path: '', redirectTo: 'laboratory-data', pathMatch: 'full' }
     ]
   }

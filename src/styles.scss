@@ -833,7 +833,8 @@ app-therapeutic-status,
 app-laboratory-data,
 app-surgical-status,
 app-specialists-conclusion,
-app-rehabilitation-conclusion {
+app-rehabilitation-conclusion,
+app-neurological-status {
   display: block;
   width: 100%;
   min-width: 0;
@@ -841,7 +842,8 @@ app-rehabilitation-conclusion {
 
 .therapeutic-status-form,
 .laboratory-data-form,
-.surgical-status-form {
+.surgical-status-form,
+.neurological-status-form {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -1067,4 +1069,20 @@ app-rehabilitation-conclusion {
 .check-field-row .check-comment-input {
   width: 100%;
   min-width: 0;
+}
+
+/* ---------- Панель действий формы (кнопка Сохранить) ---------- */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 0;
+}
+
+
+/* FIX: кнопка Сохранить слева на всех формах (перебивает legacy flex-end) */
+.neurological-status-form .form-actions,
+.surgical-status-form .form-actions,
+.therapeutic-status-form .form-actions,
+.form-actions {
+  justify-content: flex-start;
 }

@@ -16,6 +16,7 @@ import { TherapeuticStatusComponent } from './components/therapeutic-status/ther
 import { SpecialistsConclusionComponent } from './components/specialists-conclusion/specialists-conclusion.component';
 import { RehabilitationConclusionComponent } from './components/rehabilitation-conclusion/rehabilitation-conclusion.component';
 import { SurgicalStatusComponent } from './components/surgical-status/surgical-status.component';
+import { NeurologicalStatusComponent } from './components/neurological-status/neurological-status.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SurgicalStatusComponent } from './components/surgical-status/surgical-s
     TherapeuticStatusComponent,
     SpecialistsConclusionComponent,
     RehabilitationConclusionComponent,
-    SurgicalStatusComponent
+    SurgicalStatusComponent,
+    NeurologicalStatusComponent
   ],
   providers: [
     ExpertExaminationI18nService
