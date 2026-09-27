@@ -1249,7 +1249,209 @@
           }
         },
         "OPHTHALMOLOGY_DATA": {
-          "TITLE": "Офтальмологические данные"
+          "TITLE": "Офтальмологические данные",
+          "SPECIALIST": "Специалист",
+          "SPECIALIST_COMMENT": "Комментарий специалиста",
+          "VISUAL_ACUITY": {
+            "TITLE": "Острота зрения",
+            "OD_WITHOUT_CORRECTION": "OD без коррекции",
+            "OS_WITHOUT_CORRECTION": "OS без коррекции",
+            "OD_WITH_CORRECTION": "OD с коррекцией",
+            "OS_WITH_CORRECTION": "OS с коррекцией",
+            "ADDITIONAL_INFO": "Дополнительные сведения"
+          },
+          "PERIMETRY": {
+            "TITLE": "Периметрия",
+            "NO_PATHOLOGY": "Без патологии",
+            "HETERONYMOUS_BINASAL_HEMIANOPIA": "Гетеронимная биназальная гемианопсия",
+            "HETERONYMOUS_BITEMPORAL_HEMIANOPIA": "Гетеронимная битемпоральная гемианопсия",
+            "QUADRANT_HEMIANOPIA": "Квадрантная гемианопсия",
+            "HOMONYMOUS_HEMIANOPIA": "Гомонимная гемианопсия",
+            "CONCENTRIC_VISUAL_FIELD_CONSTRICTION": "Концентрическое сужение полей зрения",
+            "CENTRAL_SCOTOMAS": "Центральные скотомы",
+            "PARACENTRAL_SCOTOMAS": "Парацентральные скотомы",
+            "PERIPHERAL_SCOTOMAS": "Периферические скотомы",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "INTRAOCULAR_PRESSURE": {
+            "TITLE": "Внутриглазное давление (ВГД)",
+            "OD": "OD",
+            "OS": "OS"
+          },
+          "EYEBALLS": {
+            "TITLE": "Глазные яблоки",
+            "SYMMETRICAL": "Симметричные",
+            "SHIFTED_FORWARD": "Смещены кпереди (экзофтальм)",
+            "SHIFTED_BACKWARD": "Смещены кзади (энофтальм)",
+            "SHIFTED_INWARD": "Смещены кнутри (сходящееся косоглазие)",
+            "SHIFTED_OUTWARD": "Смещены наружу (расходящееся)",
+            "MOBILE_ALL_DIRECTIONS": "Подвижны во все стороны",
+            "ANOPHTHALMOS": "Анофтальм",
+            "PROSTHETIZED": "Протезирован",
+            "NOT_PROSTHETIZED": "Не протезирован",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "NYSTAGMUS": {
+            "TITLE": "Нистагм",
+            "PENDULAR": "Маятникообразный",
+            "JERKY": "Толчкообразный",
+            "HORIZONTAL": "Горизонтальный",
+            "VERTICAL": "Вертикальный",
+            "ROTATORY": "Ротаторный",
+            "CIRCUMFERENTIAL": "Вращательный",
+            "POSITIONAL": "Установочный",
+            "MACRO_AMPLITUDE": "Крупноразмашистый",
+            "MESO_AMPLITUDE": "Среднеразмашистый",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "CONJUNCTIVA": {
+            "TITLE": "Конъюнктива",
+            "PALE_PINK": "Бледнорозовая",
+            "PINK": "Розовая",
+            "GLOSSY": "Блестящая",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "LACRIMAL_APPARATUS": {
+            "TITLE": "Слёзный аппарат",
+            "ADDITIONAL_INFO": ""
+          },
+          "CORNEA": {
+            "TITLE": "Роговица",
+            "TRANSPARENT": "Прозрачная",
+            "AVASCULAR": "Лишена кровеносных сосудов",
+            "CLOUDY": "Мутная",
+            "EDEMATOUS": "Отёчная",
+            "CENTRAL_LEUCOMA": "Бельмо центральное",
+            "PERIPHERAL_LEUCOMA": "Бельмо периферическое",
+            "CATEGORY_I": "I категории",
+            "CATEGORY_II": "II категории",
+            "CATEGORY_III": "III категории",
+            "CATEGORY_IV": "IV категории",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "SCLERA": {
+            "TITLE": "Склера",
+            "CONGESTED_INJECTION": "Застойная инъекция сосудов",
+            "CONJUNCTIVAL_INJECTION": "Конъюнктивальная инъекция сосудов",
+            "MIXED_INJECTION": "Смешанная инъекция сосудов",
+            "MILD": "Лёгкая",
+            "MODERATE": "Умеренная",
+            "MARKED": "Резко выражена",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "ANTERIOR_CHAMBER": {
+            "TITLE": "Передняя камера",
+            "IRREGULAR": "Неравномерная",
+            "REGULAR": "Равномерная",
+            "MEDIUM_DEPTH": "Средней глубины",
+            "DEEP": "Глубокая",
+            "SHALLOW": "Мелкая",
+            "ABSENT": "Отсутствует",
+            "CONTENTS_TRANSPARENT": "Содержимое прозрачно",
+            "CONTENTS_CLOUDY": "Содержимое мутное",
+            "HYPOPYON": "Гипопион",
+            "HYPHEMA": "Гифема",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "PUPILS": {
+            "TITLE": "Зрачки",
+            "BLACK_COLOR": "Чёрного цвета",
+            "ROUND_SHAPE": "Круглой формы",
+            "MEDIUM_SIZE": "Средней величины",
+            "SIZES": "Размеры",
+            "CONSTRICTED": "Сужены",
+            "DILATED": "Расширены",
+            "PUPIL_OCCLUSION": "Окклюзия зрачка",
+            "DIRECT_LIGHT_REACTION": "Прямая реакция на свет",
+            "CONSENSUAL_LIGHT_REACTION": "Содружественная реакция на свет",
+            "PSEUDOEXFOLIATIONS": "По зрачковому краю псевдоэксфолиации",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "IRIS": {
+            "TITLE": "Радужка",
+            "COLOR": "Цвет",
+            "DECOLORIZED": "Обесцвечена",
+            "PATTERN_CLEAR": "Рисунок чёткий",
+            "ADHESION_TO_CORNEA": "Сращена с роговицей",
+            "ADHESION_TO_LENS": "Сращено с хрусталиком",
+            "DYSTROPHIC": "Дистрофична",
+            "BASAL_COLOBOMA": "Колобома радужки базальная",
+            "TOTAL_COLOBOMA": "Колобома радужки полная",
+            "IRIDOCELE": "Иридоцеле",
+            "BOMBE": "Бомбаж радужки",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "VITREOUS_BODY": {
+            "TITLE": "Стекловидное тело",
+            "TRANSPARENT": "Прозрачное",
+            "NOT_OBSERVABLE": "Не обозримо",
+            "OPACITY": "Помутнение",
+            "MARKED": "Резко выражено",
+            "MODERATELY_MARKED": "Умеренно выражено",
+            "TOTAL": "Тотальное",
+            "IMPREGNATED_WITH_HEME": "Пропитано плотной взвесью гемы",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "LENS": {
+            "TITLE": "Хрусталик",
+            "TRANSPARENT": "Прозрачный",
+            "SUBCAPSULAR_CLOUDY": "Помутнён субкапсулярно",
+            "CAPSULAR_CLOUDY": "Помутнён капсулярно",
+            "ABSENT": "Отсутствует",
+            "INTRAOCULAR_LENS": "Интраокулярная линза",
+            "SURGERY_CONTRAINDICATED": "Оперативное лечение противопоказано",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "FUNDUS": {
+            "TITLE": "Глазное дно",
+            "NOT_OPHTHALMOSCOPED": "Не офтальмоскопируется",
+            "OPTIC_DISC": "Диск зрительного нерва",
+            "BORDERS_CLEAR": "Границы чёткие",
+            "BORDERS_BLURRED": "Границы смазанные",
+            "OPTIC_DISC_EDEMA": "Отёк диска зрительного нерва",
+            "PERIPAPILLARY_STAPHYLOMA": "Вокруг диска обширные стафиломы",
+            "MACULA_NO_PATHOLOGY": "В макуле без патологии",
+            "REFLEXES_PRESERVED": "Рефлексы сохранены",
+            "RETINA_TRANSPARENT": "Сетчатка прозрачна",
+            "RETINA_EDEMA": "Отёк сетчатки",
+            "PERIPHERAL_LASER_COAGULATES": "По периферии сетчатки-лазерные коагуляты",
+            "PERIPHERAL_DEGENERATION_FOCI": "По периферии сетчатки-очаги дегенерации",
+            "VESSELS_NORMAL_CALIBER": "Сосуды нормального калибра",
+            "VESSELS_CONSTRICTED": "Сосуды сужены",
+            "VESSELS_DILATED": "Сосуды расширены",
+            "ADDITIONAL_INFO": "Дополнительно"
+          },
+          "PATIENT_BEHAVIOR": {
+            "TITLE": "Поведение больного",
+            "ORIENTATES_FREELY": "В кабинете свободно ориентируется",
+            "DOES_NOT_ORIENTATE": "В кабинете не ориентируется",
+            "WALKS_WITH_HELP": "Ходит с посторонней помощью",
+            "WALKS_WITH_CANE": "Ходит при помощи трости",
+            "WALKS_INDEPENDENTLY": "Ходит самостоятельно",
+            "OVERCOMES_OBSTACLES_FREELY": "Препятствия преодолевает свободно",
+            "OVERCOMES_OBSTACLES_WITH_DIFFICULTY": "Препятствия преодолевает с трудом",
+            "FINDS_DOOR_HANDLE_CHAIR": "Самостоятельно находит ручку двери, стул",
+            "DRESSES_INDEPENDENTLY": "Одевается самостоятельно",
+            "DRESSES_WITH_HELP": "Одевается с посторонней помощью",
+            "FOLLOWS_HAND_MOVEMENT": "Следит за движением руки врача, движущими предметами"
+          },
+          "SIGNED_IN_JOURNAL": {
+            "TITLE": "Расписался в журнале",
+            "INDEPENDENTLY": "Самостоятельно",
+            "WITH_HELP": "При помощи посторонних"
+          },
+          "GLASSES_CORRECTION": {
+            "TITLE": "Очковой коррекцией",
+            "USES": "Пользуется",
+            "DOES_NOT_USE": "Не пользуется"
+          },
+          "EYELIDS": {
+            "TITLE": "Веки",
+            "WITHIN_NORMAL": "В пределах нормы",
+            "PTOSIS": "Опущены (Птоз)",
+            "HALF_PTOSIS": "Полуопущены (Полуптоз)",
+            "ADDITIONAL_INFO": "Дополнительно"
+          }
         }
       }
     }

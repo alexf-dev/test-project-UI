@@ -3,13 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
-// Routing
 import { ExpertExaminationRoutingModule } from './expert-examination-routing.module';
-
-// Сервис переводов модуля
 import { ExpertExaminationI18nService } from './services/expert-examination-i18n.service';
 
-// Компоненты
 import { ExpertExaminationComponent } from './expert-examination.component';
 import { LaboratoryDataComponent } from './components/laboratory-data/laboratory-data.component';
 import { TherapeuticStatusComponent } from './components/therapeutic-status/therapeutic-status.component';
@@ -17,6 +13,7 @@ import { SpecialistsConclusionComponent } from './components/specialists-conclus
 import { RehabilitationConclusionComponent } from './components/rehabilitation-conclusion/rehabilitation-conclusion.component';
 import { SurgicalStatusComponent } from './components/surgical-status/surgical-status.component';
 import { NeurologicalStatusComponent } from './components/neurological-status/neurological-status.component';
+import { OphthalmologicalDataComponent } from './components/ophthalmological-data/ophthalmological-data.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +29,8 @@ import { NeurologicalStatusComponent } from './components/neurological-status/ne
     SpecialistsConclusionComponent,
     RehabilitationConclusionComponent,
     SurgicalStatusComponent,
-    NeurologicalStatusComponent
+    NeurologicalStatusComponent,
+    OphthalmologicalDataComponent
   ],
   providers: [
     ExpertExaminationI18nService
@@ -43,7 +41,6 @@ export class ExpertExaminationModule {
     private translate: TranslateService,
     private i18nService: ExpertExaminationI18nService
   ) {
-    // Догружаем переводы при переключении языка
     this.translate.onLangChange.subscribe(event => {
       this.i18nService.loadLang(event.lang);
     });

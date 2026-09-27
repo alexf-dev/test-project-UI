@@ -1249,7 +1249,209 @@
           }
         },
         "OPHTHALMOLOGY_DATA": {
-          "TITLE": "Офтальмологические данные КАЗ"
+          "TITLE": "Офтальмологиялық деректер",
+          "SPECIALIST": "Маман",
+          "SPECIALIST_COMMENT": "Маманның пікірі",
+          "VISUAL_ACUITY": {
+            "TITLE": "Көру жітілігі",
+            "OD_WITHOUT_CORRECTION": "OD коррекциясыз",
+            "OS_WITHOUT_CORRECTION": "OS коррекциясыз",
+            "OD_WITH_CORRECTION": "OD коррекциямен",
+            "OS_WITH_CORRECTION": "OS коррекциямен",
+            "ADDITIONAL_INFO": "Қосымша мәліметтер"
+          },
+          "PERIMETRY": {
+            "TITLE": "Периметрия",
+            "NO_PATHOLOGY": "Патологиясыз",
+            "HETERONYMOUS_BINASAL_HEMIANOPIA": "Гетеронимді биназальды гемианопсия",
+            "HETERONYMOUS_BITEMPORAL_HEMIANOPIA": "Гетеронимді битемпоральды гемианопсия",
+            "QUADRANT_HEMIANOPIA": "Квадрантты гемианопсия",
+            "HOMONYMOUS_HEMIANOPIA": "Гомонимді гемианопсия",
+            "CONCENTRIC_VISUAL_FIELD_CONSTRICTION": "Көру өрістерінің концентрлік тарылуы",
+            "CENTRAL_SCOTOMAS": "Орталық скотомалар",
+            "PARACENTRAL_SCOTOMAS": "Парацентралды скотомалар",
+            "PERIPHERAL_SCOTOMAS": "Шеткері скотомалар",
+            "ADDITIONAL_INFO": "Қосымша"
+          },
+          "INTRAOCULAR_PRESSURE": {
+            "TITLE": "Көзішілік қысым (КІҚ)",
+            "OD": "OD",
+            "OS": "OS"
+          },
+          "EYEBALLS": {
+            "TITLE": "Көз алмалары",
+            "SYMMETRICAL": "Симметриялы",
+            "SHIFTED_FORWARD": "Алға ығысқан (экзофтальм)",
+            "SHIFTED_BACKWARD": "Артқа ығысқан (энофтальм)",
+            "SHIFTED_INWARD": "Ішке ығысқан (жинақталатын қылилық)",
+            "SHIFTED_OUTWARD": "Сыртқа ығысқан (ажырайтын қылилық)",
+            "MOBILE_ALL_DIRECTIONS": "Барлық бағытта қозғалмалы",
+            "ANOPHTHALMOS": "Анофтальм",
+            "PROSTHETIZED": "Протезделген",
+            "NOT_PROSTHETIZED": "Протезделмеген",
+            "ADDITIONAL_INFO": "Қосымша"
+          },
+          "NYSTAGMUS": {
+            "TITLE": "Нистагм",
+            "PENDULAR": "Маятник тәрізді",
+            "JERKY": "Серпілісті",
+            "HORIZONTAL": "Көлденең",
+            "VERTICAL": "Тік",
+            "ROTATORY": "Ротаторлы",
+            "CIRCUMFERENTIAL": "Айналмалы",
+            "POSITIONAL": "Орнату нистагмы",
+            "MACRO_AMPLITUDE": "Ірі амплитудалы",
+            "MESO_AMPLITUDE": "Орташа амплитудалы",
+            "ADDITIONAL_INFO": "Қосымша"
+          },
+          "CONJUNCTIVA": {
+            "TITLE": "Конъюнктива",
+            "PALE_PINK": "Бозғылт-қызғылт",
+            "PINK": "Қызғылт",
+            "GLOSSY": "Жылтыр",
+            "ADDITIONAL_INFO": "Қосымша"
+          },
+          "LACRIMAL_APPARATUS": {
+            "TITLE": "Көз жасы аппараты",
+            "ADDITIONAL_INFO": ""
+          },
+          "CORNEA": {
+            "TITLE": "Қасаң қабық",
+            "TRANSPARENT": "Мөлдір",
+            "AVASCULAR": "Қан тамырлары жоқ",
+            "CLOUDY": "Бұлыңғыр",
+            "EDEMATOUS": "Ісінген",
+            "CENTRAL_LEUCOMA": "Орталық лейкома",
+            "PERIPHERAL_LEUCOMA": "Шеткері лейкома",
+            "CATEGORY_I": "I санатты",
+            "CATEGORY_II": "II санатты",
+            "CATEGORY_III": "III санатты",
+            "CATEGORY_IV": "IV санатты",
+            "ADDITIONAL_INFO": "Қосымша"
+          },
+          "SCLERA": {
+            "TITLE": "Склера",
+            "CONGESTED_INJECTION": "Қан тамырларының іркілісті инъекциясы",
+            "CONJUNCTIVAL_INJECTION": "Қан тамырларының конъюнктивалық инъекциясы",
+            "MIXED_INJECTION": "Қан тамырларының аралас инъекциясы",
+            "MILD": "Жеңіл",
+            "MODERATE": "Орташа",
+            "MARKED": "Айқын",
+            "ADDITIONAL_INFO": "Қосымша"
+          },
+          "ANTERIOR_CHAMBER": {
+            "TITLE": "Алдыңғы камера",
+            "IRREGULAR": "Біркелкі емес",
+            "REGULAR": "Біркелкі",
+            "MEDIUM_DEPTH": "Орташа тереңдікте",
+            "DEEP": "Терең",
+            "SHALLOW": "Таяз",
+            "ABSENT": "Жоқ",
+            "CONTENTS_TRANSPARENT": "Құрамы мөлдір",
+            "CONTENTS_CLOUDY": "Құрамы бұлыңғыр",
+            "HYPOPYON": "Гипопион",
+            "HYPHEMA": "Гифема",
+            "ADDITIONAL_INFO": "Қосымша"
+          },
+          "PUPILS": {
+            "TITLE": "Қарашықтар",
+            "BLACK_COLOR": "Қара түсті",
+            "ROUND_SHAPE": "Дөңгелек пішінді",
+            "MEDIUM_SIZE": "Орташа көлемді",
+            "SIZES": "Өлшемдері",
+            "CONSTRICTED": "Тарылған",
+            "DILATED": "Кеңейген",
+            "PUPIL_OCCLUSION": "Қарашық окклюзиясы",
+            "DIRECT_LIGHT_REACTION": "Жарыққа тікелей реакция",
+            "CONSENSUAL_LIGHT_REACTION": "Жарыққа бірлескен реакция",
+            "PSEUDOEXFOLIATIONS": "Қарашық жиегіндегі псевдоэксфолиациялар",
+            "ADDITIONAL_INFO": "Қосымша"
+          },
+          "IRIS": {
+            "TITLE": "Нұрлы қабық",
+            "COLOR": "Түсі",
+            "DECOLORIZED": "Түссізденген",
+            "PATTERN_CLEAR": "Суреті анық",
+            "ADHESION_TO_CORNEA": "Қасаң қабықпен бітіскен",
+            "ADHESION_TO_LENS": "Көз бұршағымен бітіскен",
+            "DYSTROPHIC": "Дистрофиялық өзгерген",
+            "BASAL_COLOBOMA": "Нұрлы қабықтың базальды колобомасы",
+            "TOTAL_COLOBOMA": "Нұрлы қабықтың толық колобомасы",
+            "IRIDOCELE": "Иридоцеле",
+            "BOMBE": "Нұрлы қабық бомбажы",
+            "ADDITIONAL_INFO": "Қосымша"
+          },
+          "VITREOUS_BODY": {
+            "TITLE": "Шыны тәрізді дене",
+            "TRANSPARENT": "Мөлдір",
+            "NOT_OBSERVABLE": "Көрінбейді",
+            "OPACITY": "Бұлыңғырлану",
+            "MARKED": "Айқын",
+            "MODERATELY_MARKED": "Орташа айқын",
+            "TOTAL": "Тотальды",
+            "IMPREGNATED_WITH_HEME": "Қанның тығыз қоспасымен сіңген",
+            "ADDITIONAL_INFO": "Қосымша"
+          },
+          "LENS": {
+            "TITLE": "Көз бұршағы",
+            "TRANSPARENT": "Мөлдір",
+            "SUBCAPSULAR_CLOUDY": "Субкапсулалық бұлыңғырланған",
+            "CAPSULAR_CLOUDY": "Капсулалық бұлыңғырланған",
+            "ABSENT": "Жоқ",
+            "INTRAOCULAR_LENS": "Интраокулярлық линза",
+            "SURGERY_CONTRAINDICATED": "Операциялық емге қарсы көрсетілім бар",
+            "ADDITIONAL_INFO": "Қосымша"
+          },
+          "FUNDUS": {
+            "TITLE": "Көз түбі",
+            "NOT_OPHTHALMOSCOPED": "Офтальмоскопияланбайды",
+            "OPTIC_DISC": "Көру жүйкесі дискісі",
+            "BORDERS_CLEAR": "Шекаралары анық",
+            "BORDERS_BLURRED": "Шекаралары анық емес",
+            "OPTIC_DISC_EDEMA": "Көру жүйкесі дискісінің ісінуі",
+            "PERIPAPILLARY_STAPHYLOMA": "Диск айналасында ауқымды стафиломалар",
+            "MACULA_NO_PATHOLOGY": "Макулада патология жоқ",
+            "REFLEXES_PRESERVED": "Рефлекстер сақталған",
+            "RETINA_TRANSPARENT": "Торқабық мөлдір",
+            "RETINA_EDEMA": "Торқабықтың ісінуі",
+            "PERIPHERAL_LASER_COAGULATES": "Торқабықтың шетінде лазерлік коагуляттар",
+            "PERIPHERAL_DEGENERATION_FOCI": "Торқабықтың шетінде дегенерация ошақтары",
+            "VESSELS_NORMAL_CALIBER": "Қан тамырлары қалыпты калибрлі",
+            "VESSELS_CONSTRICTED": "Қан тамырлары тарылған",
+            "VESSELS_DILATED": "Қан тамырлары кеңейген",
+            "ADDITIONAL_INFO": "Қосымша"
+          },
+          "PATIENT_BEHAVIOR": {
+            "TITLE": "Науқастың мінез-құлқы",
+            "ORIENTATES_FREELY": "Кабинетте еркін бағдарланады",
+            "DOES_NOT_ORIENTATE": "Кабинетте бағдарланбайды",
+            "WALKS_WITH_HELP": "Бөгде адамның көмегімен жүреді",
+            "WALKS_WITH_CANE": "Таяқтың көмегімен жүреді",
+            "WALKS_INDEPENDENTLY": "Өздігінен жүреді",
+            "OVERCOMES_OBSTACLES_FREELY": "Кедергілерден еркін өтеді",
+            "OVERCOMES_OBSTACLES_WITH_DIFFICULTY": "Кедергілерден қиындықпен өтеді",
+            "FINDS_DOOR_HANDLE_CHAIR": "Есік тұтқасын, орындықты өздігінен табады",
+            "DRESSES_INDEPENDENTLY": "Өздігінен киінеді",
+            "DRESSES_WITH_HELP": "Бөгде адамның көмегімен киінеді",
+            "FOLLOWS_HAND_MOVEMENT": "Дәрігер қолының және қозғалатын заттардың қозғалысын қадағалайды"
+          },
+          "SIGNED_IN_JOURNAL": {
+            "TITLE": "Журналға қол қойды",
+            "INDEPENDENTLY": "Өздігінен",
+            "WITH_HELP": "Бөгде адамдардың көмегімен"
+          },
+          "GLASSES_CORRECTION": {
+            "TITLE": "Көзілдірікпен түзетуді",
+            "USES": "Қолданады",
+            "DOES_NOT_USE": "Қолданбайды"
+          },
+          "EYELIDS": {
+            "TITLE": "Қабақтар",
+            "WITHIN_NORMAL": "Қалыпты шектерде",
+            "PTOSIS": "Төмен түскен (птоз)",
+            "HALF_PTOSIS": "Жартылай төмен түскен (жартылай птоз)",
+            "ADDITIONAL_INFO": "Қосымша"
+          }
         }
       }
     }

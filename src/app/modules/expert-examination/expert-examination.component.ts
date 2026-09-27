@@ -17,5 +17,3 @@ export class ExpertExaminationComponent {
     { label: 'MAIN.EXAMINATION.EXPERT_EXAMINATION.OPHTHALMOLOGY_DATA.TITLE', route: 'ophthalmology-data' }
   ];
 }
-
-

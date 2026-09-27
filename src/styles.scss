@@ -834,7 +834,8 @@ app-laboratory-data,
 app-surgical-status,
 app-specialists-conclusion,
 app-rehabilitation-conclusion,
-app-neurological-status {
+app-neurological-status,
+app-ophthalmological-data {
   display: block;
   width: 100%;
   min-width: 0;
@@ -843,7 +844,8 @@ app-neurological-status {
 .therapeutic-status-form,
 .laboratory-data-form,
 .surgical-status-form,
-.neurological-status-form {
+.neurological-status-form,
+.ophthalmological-data-form {
   display: flex;
   flex-direction: column;
   gap: 24px;
