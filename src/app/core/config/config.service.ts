@@ -39,4 +39,8 @@ export class ConfigService {
   public get enableDebugLogs(): boolean {
     return this.config.enableDebugLogs;
   }
+
+  public get showThemeSelector(): boolean {
+    return this.config.showThemeSelector;
+  }
 }

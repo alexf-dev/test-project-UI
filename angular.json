@@ -28,7 +28,8 @@
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeflex/primeflex.css",
               "src/styles.scss",
-              "src/assets/global.css"
+              "src/assets/global.css",
+              "src/styles/themes/theme-tokens.css"
             ],
             "scripts": [
               "src/assets/kalkan/jquery.blockUI.js",
@@ -116,7 +117,8 @@
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeflex/primeflex.css",
               "src/styles.scss",
-              "src/assets/global.css"
+              "src/assets/global.css",
+              "src/styles/themes/theme-tokens.css"
             ],
             "scripts": [
               "src/assets/kalkan/jquery.blockUI.js",

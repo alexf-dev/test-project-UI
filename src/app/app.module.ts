@@ -27,6 +27,10 @@ export function initializeApp(configService: ConfigService): () => Promise<void>
   return () => configService.load();
 }
 
+export function loadConfig(configService: ConfigService): () => Promise<void> {
+  return () => configService.load();
+}
+
 /**
  * Блокирует бутстрап приложения, пока не загрузятся переводы
  * базового языка → убирает мигание ключей на старте.
@@ -98,6 +102,12 @@ function appInitializer(authService: AuthService) {
       provide: APP_INITIALIZER,
       useFactory: translateAppInitializer,
       deps: [TranslateService],
+      multi: true
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: loadConfig,
+      deps: [ConfigService],
       multi: true
     },
     { provide: HTTP_INTERCEPTORS,

@@ -1,6 +1,7 @@
 /** Интерфейс структуры конфигурации — для типизации */
 export interface AppConfig {
   enableTestButtons: boolean;
+  showThemeSelector: boolean;
   enableDebugLogs: boolean;
   apiTimeout: number;
   featureFlags: {
@@ -12,6 +13,7 @@ export interface AppConfig {
 /** Значения по умолчанию, если конфиг не загрузился */
 export const DEFAULT_CONFIG: AppConfig = {
   enableTestButtons: false,
+  showThemeSelector: true,
   enableDebugLogs: false,
   apiTimeout: 30000,
   featureFlags: {
