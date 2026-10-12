@@ -15,7 +15,8 @@
   --app-sidebar-text: #ffffff;
   --app-card-bg: #ffffff;
   --app-card-border: #e5e7eb;
-  --app-text: #1f2937;
+  --app-text: #020617;          /* основной текст: лейблы, поля, чекбоксы */
+  --app-text-heading: #262626;  /* текст шапок блоков и стрелок */
   --app-text-secondary: #64748b;
   --app-border: #d1d5db;
   --app-block-header-bg: #F1F5F9;
@@ -23,6 +24,21 @@
   --app-input-bg: #ffffff;
   --app-font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif;
   --app-font-size-base: 14px;
+  /* Шапки сворачиваемых блоков форм */
+  --app-block-header-hover: #E8ECF1;
+  --app-block-header-nested: #F8FAFC;
+  --app-block-content-bg: rgba(241, 245, 249, 0.5);
+  /* Фокус полей */
+  --app-focus-color: #3B82F6;
+  --app-focus-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+  /* Отступы (масштаб проекта, значения = текущим) — для шага 1b */
+  --app-space-4: 4px;
+  --app-space-6: 6px;
+  --app-space-8: 8px;
+  --app-space-12: 12px;
+  --app-space-16: 16px;
+  --app-space-24: 24px;
+  --app-space-32: 32px;
 }
 
 /* Применение шрифтовых токенов globally (демо: поменяй токен — изменится весь сайт) */
@@ -68,6 +84,13 @@ html[data-theme="dark"] {
   --hover-bg: #243244;
   --maskbg: rgba(0, 0, 0, 0.6);
   --focus-ring: 0 0 0 1px #a79cf8;
+
+  --app-block-header-hover: #2b3a4e;
+  --app-block-header-nested: #1f2b3d;
+  --app-block-content-bg: rgba(30, 41, 59, 0.5);
+  --app-focus-color: #8b7cf6;
+  --app-focus-shadow: 0 0 0 2px rgba(139, 124, 246, 0.25);
+  --app-text-heading: #e5e7eb;
 }
 
 /* ---------- Layout ---------- */
@@ -171,32 +194,6 @@ html[data-theme="dark"] .committee-tab { color: var(--app-text-secondary); }
 html[data-theme="dark"] .committee-tab-active { color: var(--app-text); }
 html[data-theme="dark"] .case-link { color: #93c5fd; }
 html[data-theme="dark"] .overdue-text { color: #f87171; }
-
-/* ---------- Формы экспертного обследования (оригинал с !important) ---------- */
-html[data-theme="dark"] .laboratory-block { background: var(--app-card-bg); }
-html[data-theme="dark"] .block-header {
-  background: var(--app-block-header-bg) !important;
-  border-bottom: 1px solid var(--app-block-header-border) !important;
-}
-html[data-theme="dark"] .block-header .block-title,
-html[data-theme="dark"] .field-label,
-html[data-theme="dark"] .group-title,
-html[data-theme="dark"] .checkbox-label,
-html[data-theme="dark"] .row-label { color: var(--app-text) !important; }
-html[data-theme="dark"] .block-content { background: rgba(30, 41, 59, 0.5) !important; }
-html[data-theme="dark"] .laboratory-block textarea,
-html[data-theme="dark"] .laboratory-block input[type="text"],
-html[data-theme="dark"] app-textarea-field textarea,
-html[data-theme="dark"] app-text-input-field input {
-  background: var(--app-input-bg) !important;
-  border: 1px solid var(--app-border) !important;
-  color: var(--app-text) !important;
-}
-html[data-theme="dark"] .laboratory-block textarea::placeholder,
-html[data-theme="dark"] .laboratory-block input::placeholder,
-html[data-theme="dark"] .field-hint,
-html[data-theme="dark"] .placeholder-text { color: var(--app-text-secondary) !important; }
-html[data-theme="dark"] .select-box { background: var(--app-input-bg); border-color: var(--app-border); }
 
 /* ---------- Кнопка переключения темы ---------- */
 .theme-toggle-btn {
@@ -396,6 +393,21 @@ html[data-theme="state"] {
   --app-block-header-bg: #dff1f5;
   --app-block-header-border: #cfe8ef;
   --app-input-bg: #ffffff;
+
+  --app-block-header-hover: #d0e9ef;
+  --app-block-header-nested: #e8f6f9;
+  --app-block-content-bg: rgba(223, 241, 245, 0.5);
+  --app-focus-color: #00AEC7;
+  --app-focus-shadow: 0 0 0 2px rgba(0, 174, 199, 0.15);
+  --app-text-heading: #0a2e36;
+
+  --surface-a: #ffffff;
+  --surface-b: #f0f9fb;
+  --surface-c: #dff1f5;
+  --surface-d: #bfd9e0;
+  --surface-e: #ffffff;
+  --surface-f: #ffffff;
+  --focus-ring: 0 0 0 2px rgba(0, 174, 199, 0.2);
 }
 
 html[data-theme="state"] .layout-sidebar {
@@ -423,4 +435,275 @@ html[data-theme="state"] .p-button.p-button-primary:hover {
 html[data-theme="state"] .p-tag.p-tag-info {
   background: rgba(244, 196, 48, 0.25);
   color: #7a5e00;
+}
+
+/* =====================================================
+   Этап 2, база: состояния компонентов (dark + state)
+   ===================================================== */
+html[data-theme="dark"] .p-inputtext.ng-invalid.ng-dirty,
+html[data-theme="state"] .p-inputtext.ng-invalid.ng-dirty {
+  border-color: #f87171;
+}
+
+html[data-theme="dark"] .p-inputtext:disabled,
+html[data-theme="state"] .p-inputtext:disabled {
+  background: var(--surface-hover);
+  color: var(--text-color-secondary);
+  opacity: 1;
+}
+
+html[data-theme="dark"] .p-button:disabled,
+html[data-theme="state"] .p-button:disabled {
+  background: var(--surface-hover);
+  color: var(--text-color-secondary);
+  border-color: transparent;
+  opacity: 0.7;
+}
+
+html[data-theme="dark"] .p-dropdown.p-invalid,
+html[data-theme="state"] .p-dropdown.p-invalid {
+  border-color: #f87171;
+}
+
+/* =====================================================
+   ЭТАП 2: состояния PrimeNG-компонентов (dark + state)
+   ===================================================== */
+
+/* ---------- Фокус всех форм-контролов ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-inputtext:enabled:focus,
+html:is([data-theme="dark"], [data-theme="state"]) .p-inputnumber .p-inputtext:enabled:focus,
+html:is([data-theme="dark"], [data-theme="state"]) .p-dropdown:not(.p-disabled):focus-within,
+html:is([data-theme="dark"], [data-theme="state"]) .p-multiselect:not(.p-disabled):focus-within {
+  border-color: var(--app-focus-color);
+  box-shadow: var(--app-focus-shadow);
+}
+
+/* ---------- Disabled ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-dropdown.p-disabled,
+html:is([data-theme="dark"], [data-theme="state"]) .p-multiselect.p-disabled {
+  background: var(--surface-hover);
+  opacity: 1;
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-dropdown.p-disabled .p-dropdown-label,
+html:is([data-theme="dark"], [data-theme="state"]) .p-multiselect.p-disabled .p-multiselect-label {
+  color: var(--text-color-secondary);
+}
+
+/* ---------- MultiSelect: панель, пункты, шапка ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-multiselect-panel {
+  background: var(--surface-overlay);
+  border-color: var(--surface-border);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-multiselect-header {
+  background: var(--surface-overlay);
+  border-color: var(--surface-border);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-multiselect-label { color: var(--text-color); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-multiselect-label.p-placeholder { color: var(--text-color-secondary); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-multiselect-item { color: var(--text-color); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-multiselect-item:not(.p-highlight):hover { background: var(--surface-hover); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-multiselect-item.p-highlight {
+  background: var(--highlight-bg);
+  color: var(--highlight-text-color);
+}
+
+/* ---------- Checkbox / RadioButton ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-checkbox .p-checkbox-box {
+  background: var(--app-input-bg);
+  border-color: var(--app-border);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {
+  border-color: var(--app-focus-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-checkbox .p-checkbox-box.p-highlight {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--primary-color-text);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-radiobutton .p-radiobutton-box {
+  background: var(--app-input-bg);
+  border-color: var(--app-border);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-radiobutton:not(.p-radiobutton-disabled) .p-radiobutton-box:hover {
+  border-color: var(--app-focus-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-radiobutton .p-radiobutton-box.p-highlight {
+  border-color: var(--primary-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-radiobutton .p-radiobutton-box.p-highlight .p-radiobutton-icon {
+  background: var(--primary-color);
+}
+
+/* ---------- Table: сортировка, hover, выделение ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-datatable .p-sortable-column:hover {
+  background: var(--surface-hover);
+  color: var(--text-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-datatable .p-sortable-column.p-highlight {
+  background: var(--highlight-bg);
+  color: var(--highlight-text-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-datatable .p-datatable-tbody > tr.p-highlight > td {
+  background: var(--highlight-bg);
+  color: var(--highlight-text-color);
+}
+
+/* ---------- Paginator: hover ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-paginator .p-paginator-page:not(.p-highlight):hover,
+html:is([data-theme="dark"], [data-theme="state"]) .p-paginator .p-paginator-prev:hover,
+html:is([data-theme="dark"], [data-theme="state"]) .p-paginator .p-paginator-next:hover {
+  background: var(--surface-hover);
+  color: var(--text-color);
+}
+
+/* ---------- Dialog / ConfirmDialog ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-dialog {
+  background: var(--surface-overlay);
+  border-color: var(--surface-border);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-dialog .p-dialog-header {
+  background: var(--surface-overlay);
+  border-color: var(--surface-border);
+  color: var(--text-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-dialog .p-dialog-header-icon { color: var(--text-color-secondary); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-dialog .p-dialog-header-icon:hover {
+  background: var(--surface-hover);
+  color: var(--text-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-dialog .p-dialog-content {
+  background: var(--surface-overlay);
+  color: var(--text-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-dialog .p-dialog-footer {
+  background: var(--surface-overlay);
+  border-color: var(--surface-border);
+}
+
+/* ---------- Panel / Accordion / Card ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-panel,
+html:is([data-theme="dark"], [data-theme="state"]) .p-panel .p-panel-header,
+html:is([data-theme="dark"], [data-theme="state"]) .p-panel .p-panel-content {
+  background: var(--surface-card);
+  border-color: var(--surface-border);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-panel .p-panel-title { color: var(--text-color); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-panel .p-panel-header-icon { color: var(--text-color-secondary); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-panel .p-panel-header-icon:hover {
+  background: var(--surface-hover);
+  color: var(--text-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-accordion .p-accordion-header .p-accordion-header-link {
+  background: var(--surface-card);
+  border-color: var(--surface-border);
+  color: var(--text-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-accordion .p-accordion-header .p-accordion-header-link:hover {
+  background: var(--surface-hover);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-accordion .p-accordion-header.p-highlight .p-accordion-header-link {
+  background: var(--surface-hover);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-accordion .p-accordion-content {
+  background: var(--surface-card);
+  border-color: var(--surface-border);
+  color: var(--text-color);
+}
+
+/* ---------- Chip / Tag ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-chip {
+  background: var(--surface-hover);
+  color: var(--text-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-tag.p-tag-info {
+  background: var(--highlight-bg);
+  color: var(--highlight-text-color);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-tag.p-tag-success { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
+html:is([data-theme="dark"], [data-theme="state"]) .p-tag.p-tag-warning { background: rgba(234, 179, 8, 0.2); color: #facc15; }
+html:is([data-theme="dark"], [data-theme="state"]) .p-tag.p-tag-danger  { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+
+/* ---------- Toast ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-toast-message-info    { background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.45); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-toast-message-success { background: rgba(34, 197, 94, 0.15);  border: 1px solid rgba(34, 197, 94, 0.45); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-toast-message-warn    { background: rgba(234, 179, 8, 0.15);  border: 1px solid rgba(234, 179, 8, 0.45); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-toast-message-error   { background: rgba(239, 68, 68, 0.15);  border: 1px solid rgba(239, 68, 68, 0.45); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-toast-message .p-toast-summary { color: var(--text-color); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-toast-message .p-toast-detail { color: var(--text-color-secondary); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-toast-message .p-toast-icon-close { color: var(--text-color-secondary); }
+
+/* ---------- ProgressBar / ProgressSpinner ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-progressbar { background: var(--surface-hover); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-progressbar .p-progressbar-value { background: var(--primary-color); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-progressspinner circle { stroke: var(--primary-color) !important; }
+
+/* ---------- Tree ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-tree {
+  background: var(--surface-card);
+  border-color: var(--surface-border);
+}
+html:is([data-theme="dark"], [data-theme="state"]) .p-tree .p-treenode-content { color: var(--text-color); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-tree .p-treenode-icon { color: var(--text-color-secondary); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-tree .p-treenode-selectable:not(.p-treenode-content.p-highlight) > .p-treenode-content:hover { background: var(--surface-hover); }
+html:is([data-theme="dark"], [data-theme="state"]) .p-tree .p-treenode-content.p-highlight {
+  background: var(--highlight-bg);
+  color: var(--highlight-text-color);
+}
+
+/* ---------- TabMenu: hover ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-tabmenu .p-menuitem-link:hover {
+  background: var(--surface-hover);
+  color: var(--text-color);
+}
+
+/* ---------- Button: focus-ring ---------- */
+html:is([data-theme="dark"], [data-theme="state"]) .p-button:focus {
+  box-shadow: var(--app-focus-shadow);
+}
+
+/* =====================================================
+   Усиление государственной темы: видимые поверхности
+   ===================================================== */
+html[data-theme="state"] {
+  --app-bg: #e8f4f8;          /* фон страницы — заметно голубой */
+  --app-content-bg: #f4fafc;  /* рабочая область — голубоватая */
+  --surface-c: #cfe8ef;       /* шапки таблиц/панелей — выразительнее */
+  --surface-hover: #d8edf3;
+  --highlight-bg: rgba(0, 174, 199, 0.18);
+  --highlight-text-color: #00607a;
+}
+
+html[data-theme="state"] .layout-content {
+  background: var(--app-content-bg);
+}
+html[data-theme="state"] .layout-topbar {
+  background: #ffffff;
+  border-bottom-color: #bfd9e0;
+}
+html[data-theme="state"] .layout-sidebar {
+  background: #00566e;        /* ярче дефолтного #01475C — отличие видно */
+}
+html[data-theme="state"] .menu-item.active-route,
+html[data-theme="state"] .menu-item.active-parent {
+  background: rgba(244, 196, 48, 0.35);
+  color: #ffffff;
+}
+html[data-theme="state"] .layout-content h1,
+html[data-theme="state"] .layout-content h2 {
+  color: #00566e;
+}
+html[data-theme="state"] .p-datatable .p-datatable-thead > tr > th {
+  background: #cfe8ef;
+  color: #0a2e36;
+  border-color: #bfd9e0;
+}
+html[data-theme="state"] .p-datatable .p-datatable-tbody > tr > td {
+  border-color: #d5e8ee;
+}
+html[data-theme="state"] .p-datatable .p-datatable-tbody > tr:hover > td {
+  background: #d8edf3;
+}
+html[data-theme="state"] .p-paginator .p-paginator-page.p-highlight {
+  background: var(--primary-color);
+  color: #ffffff;
 }
