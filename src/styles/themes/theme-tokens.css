@@ -39,6 +39,34 @@
   --app-space-16: 16px;
   --app-space-24: 24px;
   --app-space-32: 32px;
+
+  /* Расширенная шкала текста (значения = текущим из компонентных CSS) */
+  --app-text-medium: #475569;
+  --app-text-faint: #94a3b8;
+  /* Семантика и ссылки */
+  --app-link: #2563eb;
+  --app-success-text: #198754;
+  --app-danger-text: #ef233c;
+  --app-accent-teal: #08a6c1;
+  --app-agreement-link: #CC400C;
+  /* Светлые границы и подложки */
+  --app-border-light: #e5e7eb;
+  --app-bg-warn-tint: #fff7e6;
+  --app-bg-success-tint: #e8fbe8;
+  --app-text-steel: #4c6b80;
+  /* Поверхности */
+  --app-surface-page: #f8fafc;
+  --app-surface-panel: #f1f5f9;
+  --app-hover-bg: #f1f5f9;
+  /* Цветные подложки */
+  --app-tint-blue: #eff6ff;
+  --app-tint-blue-strong: #dde8fd;
+  --app-tint-cyan: #e7f8fb;
+  --app-tint-ivory: #fffdf8;
+  --app-bg-danger-tint: #feecec;
+  /* Кнопки успеха */
+  --app-success-bg: #51B291;
+  --app-success-bg-hover: #45A080;
 }
 
 /* Применение шрифтовых токенов globally (демо: поменяй токен — изменится весь сайт) */
@@ -91,6 +119,29 @@ html[data-theme="dark"] {
   --app-focus-color: #8b7cf6;
   --app-focus-shadow: 0 0 0 2px rgba(139, 124, 246, 0.25);
   --app-text-heading: #e5e7eb;
+
+  --app-text-medium: #cbd5e1;
+  --app-text-faint: #64748b;
+  --app-link: #93c5fd;
+  --app-success-text: #4ade80;
+  --app-danger-text: #f87171;
+  --app-accent-teal: #22d3ee;
+  --app-agreement-link: #fb923c;
+  --app-border-light: #334155;
+  --app-bg-warn-tint: rgba(234, 179, 8, 0.12);
+  --app-bg-success-tint: rgba(34, 197, 94, 0.12);
+  --app-text-steel: #9fc0d8;
+
+  --app-surface-page: #0b1220;
+  --app-surface-panel: #18202e;
+  --app-hover-bg: rgba(255, 255, 255, 0.08);
+  --app-tint-blue: rgba(59, 130, 246, 0.15);
+  --app-tint-blue-strong: rgba(59, 130, 246, 0.30);
+  --app-tint-cyan: rgba(34, 211, 238, 0.12);
+  --app-tint-ivory: rgba(234, 179, 8, 0.08);
+  --app-bg-danger-tint: rgba(239, 68, 68, 0.12);
+  --app-success-bg: #51B291;
+  --app-success-bg-hover: #45A080;
 }
 
 /* ---------- Layout ---------- */
@@ -408,6 +459,29 @@ html[data-theme="state"] {
   --surface-e: #ffffff;
   --surface-f: #ffffff;
   --focus-ring: 0 0 0 2px rgba(0, 174, 199, 0.2);
+
+  --app-text-medium: #40606b;
+  --app-text-faint: #7d99a3;
+  --app-link: #00607a;
+  --app-success-text: #0f7a4d;
+  --app-danger-text: #c1121f;
+  --app-accent-teal: #00AEC7;
+  --app-agreement-link: #a33500;
+  --app-border-light: #d5e8ee;
+  --app-bg-warn-tint: #fdf3d7;
+  --app-bg-success-tint: #e2f6e9;
+  --app-text-steel: #33606e;
+
+  --app-surface-page: #e8f4f8;
+  --app-surface-panel: #dff1f5;
+  --app-hover-bg: #d8edf3;
+  --app-tint-blue: #e0f2f7;
+  --app-tint-blue-strong: #cfe8ef;
+  --app-tint-cyan: #dff1f5;
+  --app-tint-ivory: #fbf6e3;
+  --app-bg-danger-tint: #fbe3e3;
+  --app-success-bg: #51B291;
+  --app-success-bg-hover: #45A080;
 }
 
 html[data-theme="state"] .layout-sidebar {
@@ -707,3 +781,78 @@ html[data-theme="state"] .p-paginator .p-paginator-page.p-highlight {
   background: var(--primary-color);
   color: #ffffff;
 }
+
+/* =====================================================
+   FIX: читаемый текст в тёмной теме (базовое наследование + частые классы)
+   ===================================================== */
+html[data-theme="dark"] .layout-content {
+  color: var(--app-text);
+}
+html[data-theme="dark"] .page-title,
+html[data-theme="dark"] .section-title,
+html[data-theme="dark"] .subsection-title,
+html[data-theme="dark"] .group-title,
+html[data-theme="dark"] .card-header h2,
+html[data-theme="dark"] .summary-title,
+html[data-theme="dark"] .summary-row span,
+html[data-theme="dark"] .metric-title,
+html[data-theme="dark"] .metric-value,
+html[data-theme="dark"] .field-label,
+html[data-theme="dark"] .row-label,
+html[data-theme="dark"] .checkbox-label,
+html[data-theme="dark"] .filter-label,
+html[data-theme="dark"] label {
+  color: var(--app-text);
+}
+html[data-theme="dark"] .text-400,
+html[data-theme="dark"] .text-300 {
+  color: var(--app-text-secondary) !important;
+}
+html[data-theme="dark"] .layout-content a:not(.case-link):not(.menu-item):not(.submenu-item) {
+  color: #93c5fd;
+}
+
+/* Дашборд: тексты графиков и служебные подписи в тёмной теме */
+html[data-theme="dark"] .header-count,
+html[data-theme="dark"] .bar-label,
+html[data-theme="dark"] .bar-footer-label,
+html[data-theme="dark"] .bar-y-axis span,
+html[data-theme="dark"] .gauge-arc span,
+html[data-theme="dark"] .legend-item,
+html[data-theme="dark"] .consultation-card p {
+  color: var(--app-text-secondary);
+}
+html[data-theme="dark"] .card-header a {
+  color: #93c5fd;
+}
+html[data-theme="dark"] .summary-row strong {
+  color: var(--app-text);
+}
+
+/* ---------- Метрик-карточки: перебиваем двухклассовый селектор ---------- */
+html[data-theme="dark"] .metric-card.metric-blue   { background: rgba(59, 130, 246, 0.18); }
+html[data-theme="dark"] .metric-card.metric-cyan   { background: rgba(34, 211, 238, 0.16); }
+html[data-theme="dark"] .metric-card.metric-yellow { background: rgba(234, 179, 8, 0.18); }
+html[data-theme="dark"] .metric-card.metric-red    { background: rgba(239, 68, 68, 0.18); }
+html[data-theme="dark"] .metric-card.metric-green  { background: rgba(34, 197, 94, 0.18); }
+html[data-theme="dark"] .metric-card .metric-value { color: var(--app-text); }
+html[data-theme="dark"] .metric-card .metric-title { color: var(--app-text-secondary); }
+
+/* ---------- Заголовки страниц ---------- */
+html[data-theme="dark"] .page-title { color: var(--app-text); }
+
+/* ---------- Committee-табы ---------- */
+html[data-theme="dark"] .committee-tabs { background: transparent; border-color: var(--app-card-border); }
+html[data-theme="dark"] .committee-tab { background: transparent; color: var(--app-text-secondary); }
+html[data-theme="dark"] .committee-tab-active { background: var(--primary-color); color: #ffffff; }
+
+/* ---------- Датапикер: читаемость ---------- */
+html[data-theme="dark"] .p-datepicker .p-datepicker-header { color: var(--app-text); }
+html[data-theme="dark"] .p-datepicker .p-datepicker-prev,
+html[data-theme="dark"] .p-datepicker .p-datepicker-next { color: var(--app-text-secondary); }
+html[data-theme="dark"] .p-datepicker .p-datepicker-weekday { color: var(--app-text-secondary); }
+html[data-theme="dark"] .p-datepicker td > span { color: var(--app-text); }
+html[data-theme="dark"] .p-datepicker td.p-datepicker-other-month > span { color: var(--app-text-faint); }
+html[data-theme="dark"] .p-datepicker .p-highlight { background: var(--primary-color); color: #ffffff; }
+html[data-theme="dark"] .p-datepicker td.p-datepicker-today > span { border-color: var(--app-focus-color); }
+
